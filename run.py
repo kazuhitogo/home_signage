@@ -76,6 +76,7 @@ if __name__ == '__main__':
         for i,dd in enumerate(ddl):
             
             for j in range(5):
+                rgb = (0,0,0)
                 if j == 0:
                     display_txt = '--------------------------------'
                 elif j == 1:
@@ -83,8 +84,10 @@ if __name__ == '__main__':
                     display_txt = str(dd.target_date.strftime('%Y/%m/%d')) + ' : ' + weekday_code[dd.target_date.weekday()]
                 elif j == 2:
                     display_txt = f'最高気温 : {str(dd.temp_max)}'
+                    rgb = (255,0,0)
                 elif j == 3:
                     display_txt = f'最低気温 : {str(dd.temp_min)}'
+                    rgb = (0,0,255)
                 elif j == 4:
                     display_txt = f'天気コード : {str(dd.weather_code)}'
                 draw_text(
@@ -93,7 +96,7 @@ if __name__ == '__main__':
                     x = x, 
                     y = y + y_range * y_idx, 
                     display_txt = display_txt, 
-                    rgb = (0,0,0)
+                    rgb = rgb
                 )
                 y_idx += 1
             
